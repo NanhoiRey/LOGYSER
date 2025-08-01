@@ -1,18 +1,22 @@
 [
-    {
-        "icon": "📄",
-        "title": "Recepción y desconsolidación de contenedores"
-    },
-    {
-        "icon": "📦",
-        "title": "Almacenamiento Inteligente"
-    },
-    {
-        "icon": "📫",
-        "title": "Distribución en GBA, CABA y Nacional"
-    },
-    {
-        "icon": "✅",
-        "title": "Crossdocking (puntos estratégicos)"
-    }
+  {
+    "icon": "🚚",
+    "title": "Recepción y desconsolidación de contenedores",
+    "backgroundImage": "img/1.jpg"
+  },
+  {
+    "icon": "🛡️",
+    "title": "Almacenamiento Inteligente",
+    "backgroundImage": "img/2.jpg"
+  },
+  {
+    "icon": "📍",
+    "title": "Distribución en GBA, CABA y Nacional",
+    "backgroundImage": "img/3.jpg"
+  },
+  {
+    "icon": "📦",
+    "title": "Picking & Packing personalizado",
+    "backgroundImage": "img/4.jpg"
+  }
 ]
