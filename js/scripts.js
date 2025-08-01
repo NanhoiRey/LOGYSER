@@ -32,3 +32,22 @@ document.addEventListener('scroll', () =>{
 
 
     });
+
+
+    // Consumo del JSON de carpeta DATA
+
+    fetch('./data/services.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('services-container');
+    data.forEach(service => {
+      const card = document.createElement('div');
+      card.classList.add('service-card');
+      card.innerHTML = `
+        <div class="service-icon">${service.icon}</div>
+        <div class="service-title">${service.title}</div>
+        <button>Ver más</button>
+      `;
+      container.appendChild(card);
+    });
+  });

@@ -1,0 +1,96 @@
+:root {
+    --azul-oscuro: #202531;
+    --gris-oscuro: #505E75;
+    --naranja: #EB5C21;
+    --gris-claro: #D7D9D8;
+    --blanco: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fuente/avenir-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fuente/avenir-black.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fuente/avenir-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+.footer-contact {
+  background-color: var(--gris-claro);
+  color: #fff;
+  padding: 5rem 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  max-width: 600px;
+  width: 100%;
+}
+.footer-content h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--azul-oscuro);
+
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--azul-oscuro);
+  color: #fff;
+  font-family: 'Avenir';
+  font-weight: 300;
+  
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-form button {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--azul-oscuro);
+}
+
+.footer-rights {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--azul-oscuro);
+}
