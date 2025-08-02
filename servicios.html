@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/footer.css">
 
+    <link rel="stylesheet" href="css/servicios.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -39,7 +41,7 @@
 
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link">Inicio</a>
+                    <a href="index.html" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a href="#about-us" class="nav-link">Quienes Somos</a>
@@ -72,34 +74,66 @@
 
         <article class="header-article">
 
-            <h1>Logística eficiente</h1>
-            <h2>Para negocios que crecen</h2>
+            <h1>SERVICIOS</h1>
+            <p>Ofrecemos soluciones logísticas y de distribución con excelencia, respaldadas por años de experiencia. <br>
+                Nosenfocamos en la eficiencia, puntualidad y calidad en cada entrega.</p>
 
-            <div class="hero-buttons">
-                <button class="btn">Solicitá una cotización</button>
+            <!-- <div class="hero-buttons">
+                <button class="btn"></button>
                 <button class="btn">Conocé nuestros servicios</button>
-            </div>
+            </div> -->
 
 
         </article>
 
     </header>
 
-    <section class="mensaje">
-        <h2>Conectamos destinos, <strong>entregamos confianza.</strong></h2>
-    </section>
+    <section id="servicios" class="servicios">
+        
+        <p></p>
 
-    <section class="services-section">
-        <h2>Algunos de nuestros servicios</h2>
-        <p class="services-description">
-            Más de una década ofreciendo soluciones en transporte y logística, con tecnología de punta y la confianza de
-            nuestros clientes como nuestro mejor aval.
-        </p>
-        <div class="services-grid" id="services-container"></div>
-    </section>
+        <div class="acordeon">
+            <div class="item">
+                <div class="titulo" onclick="toggleItem(this)">
+                    <span> 💻 Recepción y desconsolidación de contenedores</span>
+                    <button class="toggle">+</button>
+                </div>
+                <div class="contenido">
+                    <p>Cubrimos todo el país con una red eficiente que garantiza entregas seguras y rápidas.
+                        <br> Nuestro equipo se encarga de cada detalle para que tu carga llegue a tiempo y en perfectas condiciones.
+                        <br> Contamos con tecnología avanzada para el seguimiento de envíos y gestión de inventarios.</p>
+                    </p>
+                </div>
+            </div>
 
-    <section class="mensaje2">
-        <h2>Compromiso ▫️ Innovación ▫️ Comunicación ▫️ Accesibilidad ▫️ Simplicidad</h2>
+            <div class="item">
+                <div class="titulo" onclick="toggleItem(this)">
+                    <span>📦 Almacenamiento inteligente</span>
+                    <button class="toggle">+</button>
+                </div>
+                <div class="contenido">
+                    <p>Cubrimos todo el país con una red eficiente que garantiza entregas seguras y rápidas.
+                        <br> Nuestro equipo se encarga de cada detalle para que tu carga llegue a tiempo y en perfectas condiciones.
+                        <br> Contamos con tecnología avanzada para el seguimiento de envíos y gestión de inventarios.</p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="titulo" onclick="toggleItem(this)">
+                    <span>📍Distribución en GBA, CABA y Nacional</span>
+                    <button class="toggle">+</button>
+                </div>
+                <div class="contenido">
+                    
+                    <p>Cubrimos todo el país con una red eficiente que garantiza entregas seguras y rápidas.
+                        <br> Nuestro equipo se encarga de cada detalle para que tu carga llegue a tiempo y en perfectas condiciones.
+                        <br> Contamos con tecnología avanzada para el seguimiento de envíos y gestión de inventarios.</p>
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer id="contacto">
@@ -123,9 +157,11 @@
 
         <div class="footer-map">
 
-             
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52544.29183433332!2d-58.44223191165274!3d-34.60370028294555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1754086279710!5m2!1ses!2sar" width="100%" height="300" style="border:0;"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52544.29183433332!2d-58.44223191165274!3d-34.60370028294555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1754086279710!5m2!1ses!2sar"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
 

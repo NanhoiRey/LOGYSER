@@ -105,9 +105,10 @@
 
 @media only screen and (max-width: 768px) {
     .header-article {
-        width: 90%;
+        width: 95%;
         gap: 0px;
         background-color: transparent;
+        margin-top: 1rem;
     }
 
     .header-article h1 {

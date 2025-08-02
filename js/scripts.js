@@ -55,3 +55,25 @@ fetch('./data/services.json')
       container.appendChild(card);
     });
   });
+
+
+  // Acordeon
+
+function toggleItem(element) {
+  const item = element.parentElement;
+  const boton = element.querySelector('.toggle');
+
+  const isActive = item.classList.contains('active');
+  
+  // Cierra todos los demás
+  document.querySelectorAll('.item').forEach(i => {
+    i.classList.remove('active');
+    i.querySelector('.toggle').textContent = '+';
+  });
+
+  // Abre el actual si estaba cerrado
+  if (!isActive) {
+    item.classList.add('active');
+    boton.textContent = '-';
+  }
+}
