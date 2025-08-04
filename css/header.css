@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fuente/avenir-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fuente/avenir-black.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fuente/avenir-light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+.header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+        linear-gradient(to bottom, rgb(3, 3, 3) 0%, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0) 100%),
+        url('../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.header-article {
+    width: 60%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 3rem;
+}
+
+.header-article h1 {
+    color: var(--naranja);
+    font-size: 4rem;
+
+}
+
+.header-article h2 {
+
+    font-size: 3rem;
+    color: var(--blanco);
+
+}
+
+
+.hero-buttons {
+  display: flex;
+  width: 75%;
+  max-width: 600px;
+  margin: 0rem auto;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--naranja);
+  font-family: 'Avenir';
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--azul-oscuro);
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .back-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .back-video {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header-article {
+        width: 95%;
+        gap: 0px;
+        background-color: transparent;
+        margin-top: 1rem;
+    }
+
+    .header-article h1 {
+        font-size: 2.8rem;
+    }
+
+    .header-article h2 {
+        font-size: 2.2rem;
+
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 0rem;
+        padding: 0.5rem;
+        border-radius: 2px;
+    }
+
+
+}

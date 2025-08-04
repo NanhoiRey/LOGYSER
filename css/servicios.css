@@ -1,0 +1,157 @@
+:root {
+    --azul-oscuro: #202531;
+    --gris-oscuro: #505E75;
+    --naranja: #EB5C21;
+    --gris-claro: #D7D9D8;
+    --blanco: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fuente/avenir-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fuente/avenir-black.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fuente/avenir-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+.headerServicios {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+        linear-gradient(to bottom, rgb(3, 3, 3) 0%, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0) 100%),
+        url('../img/servicios.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.header-servicios {
+    width: 60%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 3rem;
+}
+
+.header-servicios h1 {
+    color: var(--naranja);
+    font-size: 4rem;
+
+}
+
+.header-servicios h2 {
+
+    font-size: 3rem;
+    color: var(--blanco);
+
+}
+
+.servicios {
+  margin: auto;
+  padding: 6rem;
+  background-color: var(--gris-claro);
+  font-family: sans-serif;
+}
+
+.header-servicios p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+  font-family: 'Avenir';
+
+}
+.acordeon .item {
+  border-bottom: 1px solid #ccc;
+}
+
+.titulo {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px;
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 1rem;
+  transition: ease-in-out 0.3s;
+}
+.titulo:hover {
+  background: var(--gris-oscuro);
+  transition: ease-in-out 0.3s;
+}
+.toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--naranja);
+}
+
+
+.contenido {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  background: #fff;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+}
+
+.item.active .contenido {
+   max-height: none; /* Ajusta según la cantidad de contenido */
+  padding: 2rem;  
+}
+
+@media screen and (max-width: 768px) {
+  .servicios {
+    padding: 4rem 1rem;
+  }
+
+  .header-servicios p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: white;
+  width: 95%;
+  margin: 0 auto;
+  font-family: 'Avenir';
+
+}
+
+  .titulo {
+    font-size: 1.2em;
+  }
+
+  .contenido {
+    padding: 0 5px;
+  }
+  .titulo{
+    font-size: 0.9rem;
+  }
+  .contenido{
+    gap: 0.5rem;
+    line-height: 1.5rem;
+    font-size: 0.9rem;
+
+  }
+  .item.active .contenido {
+    max-height: none; /* Ajusta según la cantidad de contenido */
+    padding: 2rem;  
+  }
+  
+}
