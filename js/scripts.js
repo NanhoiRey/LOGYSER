@@ -12,13 +12,17 @@ function mainScripts() {
     }
 
     // Nav Links
-    const navLink = document.querySelectorAll(".nav-link");
-    navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-    function closeMenu() {
-      hamburger.classList.remove("active");
-      navMenu.classList.remove("active");
-    }
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        // Si este link es el toggle del submenú, NO cierres el menú
+        if (link.classList.contains('dropdown-toggle')) {
+          e.preventDefault(); // (esto ya lo haces en el otro handler)
+          return;
+        }
+        closeMenu();
+      });
+    });
   }
 
   // Scroll Navbar
@@ -33,8 +37,30 @@ function mainScripts() {
     }
   });
 
+  // Dropdown (submenú Servicios) por click
+  const serviciosParent = document.querySelector('.nav-item-has-dropdown');
+  const serviciosToggle = serviciosParent ? serviciosParent.querySelector('.dropdown-toggle') : null;
+  if (serviciosToggle && serviciosParent) {
+    serviciosToggle.addEventListener('click', function (e) {
+      // Solo prevenir si es link principal de servicios
+      e.preventDefault();
+      // Cerrar cualquier otro dropdown abierto
+      document.querySelectorAll('.nav-item-has-dropdown').forEach(item => {
+        if (item !== serviciosParent) item.classList.remove('active');
+      });
+      serviciosParent.classList.toggle('active');
+    });
+
+    // Cierra el submenú si haces click fuera
+    document.addEventListener('click', function (e) {
+      if (!serviciosParent.contains(e.target)) {
+        serviciosParent.classList.remove('active');
+      }
+    });
+  }
+
   // Acordeón: disponible globalmente
-  window.toggleItem = function(element) {
+  window.toggleItem = function (element) {
     const item = element.parentElement;
     const boton = element.querySelector('.toggle');
     const isActive = item.classList.contains('active');
@@ -50,7 +76,7 @@ function mainScripts() {
 }
 
 // Resto del código (fetch JSON, etc.) sigue igual...
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   fetch('./data/services.json')
     .then(response => response.json())
     .then(data => {
