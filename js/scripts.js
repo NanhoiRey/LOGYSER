@@ -1,31 +1,31 @@
 function mainScripts() {
-  // Hamburger
+  // Menú hamburguesa
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
 
-  if (hamburger && navMenu) {
-    hamburger.addEventListener("click", mobileMenu);
+  // Dropdown Servicios
+  const serviciosParent = document.querySelector('.nav-item-has-dropdown');
+  const serviciosLink = serviciosParent ? serviciosParent.querySelector('.servicios-link') : null;
 
-    function mobileMenu() {
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", function () {
       hamburger.classList.toggle("active");
       navMenu.classList.toggle("active");
-    }
+    });
 
-    // Nav Links
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach(link => {
       link.addEventListener("click", function (e) {
-        // Si este link es el toggle del submenú, NO cierres el menú
-        if (link.classList.contains('dropdown-toggle')) {
-          e.preventDefault(); // (esto ya lo haces en el otro handler)
-          return;
+        // En móviles, los enlaces del menú hamburguesa cierran el menú
+        if (window.innerWidth <= 768) {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
         }
-        closeMenu();
       });
     });
   }
 
-  // Scroll Navbar
+  // Sticky navbar
   document.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -37,29 +37,25 @@ function mainScripts() {
     }
   });
 
-  // Dropdown (submenú Servicios) por click
-  const serviciosParent = document.querySelector('.nav-item-has-dropdown');
-  const serviciosToggle = serviciosParent ? serviciosParent.querySelector('.dropdown-toggle') : null;
-  if (serviciosToggle && serviciosParent) {
-    serviciosToggle.addEventListener('click', function (e) {
-      // Solo prevenir si es link principal de servicios
-      e.preventDefault();
-      // Cerrar cualquier otro dropdown abierto
-      document.querySelectorAll('.nav-item-has-dropdown').forEach(item => {
-        if (item !== serviciosParent) item.classList.remove('active');
-      });
-      serviciosParent.classList.toggle('active');
-    });
+  if (serviciosParent && serviciosLink) {
+    // La lógica de hover se maneja en el CSS para desktop.
+    // El enlace "Servicios" siempre navega a su página en desktop.
+    // No es necesario añadir un event listener para el clic en desktop, ya que el link funciona por defecto.
+    // La versión móvil no tiene dropdown, los elementos se muestran siempre.
 
-    // Cierra el submenú si haces click fuera
+    // Cierra el menú al hacer clic fuera del mismo, solo en desktop (cuando hay dropdown)
     document.addEventListener('click', function (e) {
-      if (!serviciosParent.contains(e.target)) {
+      if (
+        window.innerWidth > 768 &&
+        !serviciosParent.contains(e.target) &&
+        serviciosParent.classList.contains('active')
+      ) {
         serviciosParent.classList.remove('active');
       }
     });
   }
 
-  // Acordeón: disponible globalmente
+  // Acordeón
   window.toggleItem = function (element) {
     const item = element.parentElement;
     const boton = element.querySelector('.toggle');
@@ -75,7 +71,29 @@ function mainScripts() {
   };
 }
 
-// Resto del código (fetch JSON, etc.) sigue igual...
+// Includes para nav y footer
+function includeHTML(id, url, callback) {
+  fetch(url)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+      if (callback) callback();
+    })
+    .catch(err => console.error('Error al incluir', url, err));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.getElementById('include-nav')) {
+    includeHTML('include-nav', 'nav.html', function() {
+      mainScripts();
+    });
+  }
+  if (document.getElementById('include-footer')) {
+    includeHTML('include-footer', 'footer.html');
+  }
+});
+
+// Fetch servicios para cards
 document.addEventListener('DOMContentLoaded', function () {
   fetch('./data/services.json')
     .then(response => response.json())
@@ -98,4 +116,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     });
+});
+
+// Swiper carrusel marcas
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof Swiper !== "undefined") {
+    const swiper = new Swiper('.brands-swiper', {
+      slidesPerView: window.innerWidth < 900 ? 2 : 4,
+      spaceBetween: 10,
+      loop: true,
+      autoplay: { delay: 2500 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+
+    window.addEventListener('resize', () => {
+      swiper.params.slidesPerView = window.innerWidth < 900 ? 2 : 4;
+      swiper.update();
+    });
+  }
 });

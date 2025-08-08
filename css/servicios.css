@@ -41,7 +41,7 @@
 }
 
 .header-servicios {
-    width: 60%;
+    width: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -74,7 +74,7 @@
   font-size: 1.2em;
   line-height: 1.6;
   color: white;
-  width: 60%;
+  max-width: 50vw;
   margin: 0 auto;
   font-family: 'Avenir';
 
@@ -119,15 +119,26 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  
+.headerServicios {
+    width: 100%;
+    height: 50vh;
+    
+  }
   .servicios {
     padding: 4rem 1rem;
+  }
+  .header-servicios h1 {
+    font-size: 2.5rem;
+
   }
 
   .header-servicios p {
   font-size: 1.1em;
   line-height: 1.6;
   color: white;
-  width: 95%;
+  min-width: 90%;
   margin: 0 auto;
   font-family: 'Avenir';
 
